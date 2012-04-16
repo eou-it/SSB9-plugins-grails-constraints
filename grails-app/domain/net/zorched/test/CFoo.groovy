@@ -1,6 +1,6 @@
 package net.zorched.test
 
-class Foo {
+class CFoo {
     String bar
     List baz
 

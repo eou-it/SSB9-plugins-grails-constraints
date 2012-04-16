@@ -26,27 +26,27 @@ public class SimpleConstraintsTests extends GroovyTestCase {
     }
     
     void testTwoLongConstaintBothWrongDoesntValidate() {
-        def f = new Foo(bar: "xxx", baz: [1, 2, 3])
+        def f = new CFoo(bar: "xxx", baz: [1, 2, 3])
         assert ! f.validate()
     }
 
     void testTwoLongConstaintOneWrongDoesntValidate() {
-        def f = new Foo(bar: "xx", baz: [1, 2, 3])
+        def f = new CFoo(bar: "xx", baz: [1, 2, 3])
         assert ! f.validate()
     }
 
     void testTwoLongConstaintOtherWrongDoesntValidate() {
-        def f = new Foo(bar: "xxx", baz: [1, 2, 3, 4])
+        def f = new CFoo(bar: "xxx", baz: [1, 2, 3, 4])
         assert ! f.validate()
     }
 
     void testTwoLongConstaintAppliedValidates() {
-        def f = new Foo(bar: "xx", baz: ['a', 'b'])
+        def f = new CFoo(bar: "xx", baz: ['a', 'b'])
         assert f.validate()
     }
     
     void testTwoLongConstaintAppliedToNullValidates() {
-        def f = new Foo(bar: null, baz: ['a', 'b'])
+        def f = new CFoo(bar: null, baz: ['a', 'b'])
         assert f.validate()
     }
 }
