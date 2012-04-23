@@ -1,4 +1,4 @@
-<plugin name='constraints' version='0.6.0' grailsVersion='1.1.1 &gt; *'>
+<plugin name='constraints' version='0.6.0' grailsVersion='1.3.7 &gt; *'>
   <author>Geoff Lane</author>
   <authorEmail>geoff@zorched.net</authorEmail>
   <title>Custom domain constraints plugin</title>
@@ -15,8 +15,8 @@
     <resource>AddressCommand</resource>
     <resource>TestController</resource>
     <resource>net.zorched.test.Address</resource>
+    <resource>net.zorched.test.CFoo</resource>
     <resource>net.zorched.test.Category</resource>
-    <resource>net.zorched.test.Foo</resource>
     <resource>net.zorched.test.InjectedDom</resource>
     <resource>net.zorched.test.Login</resource>
     <resource>net.zorched.test.Person</resource>
