@@ -1,4 +1,4 @@
-<plugin name='constraints' version='0.6.0' grailsVersion='1.3.7 &gt; *'>
+<plugin name='constraints' version='0.6.0' grailsVersion='2.2.0 &gt; *'>
   <author>Geoff Lane</author>
   <authorEmail>geoff@zorched.net</authorEmail>
   <title>Custom domain constraints plugin</title>
