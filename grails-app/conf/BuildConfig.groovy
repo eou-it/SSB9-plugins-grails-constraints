@@ -35,7 +35,7 @@ grails.project.dependency.resolution = {
 //       compile ':webflow:2.0.0', {
 //         exclude 'grails-webflow'
 //       }
-        compile ":hibernate:$grailsVersion"
-        compile ":tomcat:$grailsVersion"
+        compile ":hibernate:3.6.10.10"
+        compile ":tomcat:7.0.52.1"
     }
 }
