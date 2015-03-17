@@ -1,8 +1,10 @@
 import net.zorched.constraints.UsZipConstraint
 import org.apache.commons.logging.LogFactory
+import org.junit.Test
 
-class UsZipTests extends GroovyTestCase {
+class UsZipTests {
 
+    @Test
     void testValidationNotCalledIfFalsePassedAsParam() {
         def v = getConstraint(false)
         
@@ -10,7 +12,8 @@ class UsZipTests extends GroovyTestCase {
         assert v.validate("")
         assert v.validate( null)
     }
-    
+
+    @Test
     void testValidatesFiveZip() {
         def v = getConstraint(true)
         
@@ -18,6 +21,7 @@ class UsZipTests extends GroovyTestCase {
         assert v.validate("00000")
     }
 
+    @Test
     void testValidatesFivePlus4Zip() {
         def v = getConstraint(true)
 
@@ -25,6 +29,7 @@ class UsZipTests extends GroovyTestCase {
         assert v.validate("00000-5678")
     }
 
+    @Test
     void testDoesntValidateInvalidZips() {
         def v = getConstraint(true)
 

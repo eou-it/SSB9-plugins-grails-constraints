@@ -1,12 +1,14 @@
 import net.zorched.test.Person
+import org.junit.Test
+class ParameterizedConstraintTests  {
 
-class ParameterizedConstraintTests extends GroovyTestCase {
-
+    @Test
     void testWithMultipleConstraintsPassIfValid() {
         def p = new Person(firstName: "Geoff", middleName: "Michael", lastName: "Lane")
         assert p.validate()
     }
 
+    @Test
     void testWithMultipleConstraintsDontPassIfNotValid() {
         def p = new Person(firstName: "Mike", middleName: "Michael", lastName: "Lane")
         assert ! p.validate()
