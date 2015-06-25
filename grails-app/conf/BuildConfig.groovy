@@ -38,5 +38,9 @@ grails.project.dependency.resolution = {
     plugins {
         compile ":hibernate:3.6.10.10"
         compile ":tomcat:7.0.52.1"
+        test ':code-coverage:2.0.3-2',
+                {
+                    excludes 'xercesImpl'
+                }
     }
 }
