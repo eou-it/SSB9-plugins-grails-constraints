@@ -5,20 +5,20 @@ grails.project.class.dir = "target/classes"
 grails.project.test.class.dir = "target/test-classes"
 grails.project.test.reports.dir	= "target/test-reports"
 
+grails.project.dependency.resolver="maven"
+
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
     inherits( "global" ) {
         // uncomment to disable ehcache
         // excludes 'ehcache'
     }
-    log "verbose" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
+    log "error" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     repositories {
         if (System.properties['PROXY_SERVER_NAME']) {
             mavenRepo "${System.properties['PROXY_SERVER_NAME']}"
         }
 
-        grailsPlugins()
-        grailsHome()
         grailsCentral()
         mavenCentral()
 
@@ -26,17 +26,17 @@ grails.project.dependency.resolution = {
 
         mavenRepo "http://repository.jboss.org/maven2/"
         mavenRepo "http://snapshots.repository.codehaus.org"
-        mavenRepo "http://repository.codehaus.org"
         mavenRepo "http://download.java.net/maven/2/"
         mavenRepo "http://repository.jboss.com/maven2/"
 
     }
     dependencies {
-        // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
+
     }
 
     plugins {
-        compile ":hibernate:3.6.10.10"
-        compile ":tomcat:7.0.52.1"
+        compile ":hibernate:3.6.10.19"
+        compile ":tomcat:8.0.22"
+        test ':code-coverage:2.0.3-3'
     }
 }
