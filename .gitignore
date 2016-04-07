@@ -4,3 +4,4 @@ reports
 target
 .idea/
 Grails-constraints.git.iml
+*.iml
