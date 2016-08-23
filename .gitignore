@@ -1,6 +1,8 @@
+.DS_Store
 stacktrace.log
 *.zip
 reports
 target
 .idea/
 Grails-constraints.git.iml
+*.iml
