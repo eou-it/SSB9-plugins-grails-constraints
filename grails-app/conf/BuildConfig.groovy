@@ -1,36 +1,35 @@
-/*********************************************************************************
- Copyright 2012 Ellucian Company L.P. and its affiliates.
- **********************************************************************************/
+/* ****************************************************************************
+Copyright 2009-2016 Ellucian Company L.P. and its affiliates.
+*******************************************************************************/
+
+grails.servlet.version = "2.5"
 grails.project.class.dir = "target/classes"
 grails.project.test.class.dir = "target/test-classes"
-grails.project.test.reports.dir	= "target/test-reports"
+grails.project.test.reports.dir = "target/test-reports"
+grails.project.work.dir = "target/work"
 
 grails.plugin.location.'banner-codenarc'      = "../banner_codenarc.git"
 
 grails.project.dependency.resolver="maven"
 
 grails.project.dependency.resolution = {
-    // inherit Grails' default dependencies
+
     inherits( "global" ) {
-        // uncomment to disable ehcache
-        // excludes 'ehcache'
     }
-    log "error" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
+    log "debug" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     repositories {
         if (System.properties['PROXY_SERVER_NAME']) {
             mavenRepo "${System.properties['PROXY_SERVER_NAME']}"
         }
-
+        grailsPlugins()
+        grailsHome()
+        mavenLocal()
         grailsCentral()
         mavenCentral()
-
-        mavenRepo "http://repo.grails.org/grails/repo" // supporting old plugin releases
-
-        mavenRepo "http://repository.jboss.org/maven2/"
-        mavenRepo "http://snapshots.repository.codehaus.org"
-        mavenRepo "http://download.java.net/maven/2/"
-        mavenRepo "http://repository.jboss.com/maven2/"
-
+        // uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
+        //mavenRepo "http://repository.codehaus.org"
+        //mavenRepo "http://download.java.net/maven/2/"
+        //mavenRepo "http://repository.jboss.com/maven2/"
     }
     dependencies {
 
