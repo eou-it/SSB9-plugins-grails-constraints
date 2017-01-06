@@ -1,16 +1,11 @@
 package net.zorched.test
 
-import org.codehaus.groovy.grails.commons.DomainClassArtefactHandler;
-import org.hibernate.Criteria;
-import org.hibernate.FlushMode;
-import org.hibernate.Session;
-import org.hibernate.criterion.Restrictions;
-import org.springframework.orm.hibernate3.HibernateCallback;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import org.codehaus.groovy.grails.commons.DomainClassArtefactHandler
+import org.hibernate.Criteria
+import org.hibernate.FlushMode
+import org.hibernate.Session
+import org.hibernate.criterion.Restrictions
+import org.springframework.orm.hibernate3.HibernateCallback
 
 class UniqueEgConstraint {
     
