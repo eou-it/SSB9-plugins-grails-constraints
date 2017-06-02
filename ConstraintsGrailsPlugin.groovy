@@ -14,7 +14,7 @@ import net.zorched.grails.plugins.validation.CustomConstraintFactory
 
 class ConstraintsGrailsPlugin {
     // the plugin version
-    def version = "9.21"
+    def version = "9.23"
 
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "1.1.1 > *"
