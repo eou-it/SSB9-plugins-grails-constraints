@@ -1,14 +1,15 @@
 /* ****************************************************************************
-Copyright 2009-2017 Ellucian Company L.P. and its affiliates.
+Copyright 2009-2018 Ellucian Company L.P. and its affiliates.
 *******************************************************************************/
 package net.zorched.test
 
-import org.codehaus.groovy.grails.commons.DomainClassArtefactHandler
+import org.grails.core.artefact.DomainClassArtefactHandler
 import org.hibernate.Criteria
 import org.hibernate.FlushMode
 import org.hibernate.Session
 import org.hibernate.criterion.Restrictions
 import org.springframework.orm.hibernate3.HibernateCallback
+
 
 class UniqueEgConstraint {
     

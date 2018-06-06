@@ -1,4 +1,4 @@
-/* Copyright 2009 the original author or authors.
+/* Copyright 2009-2018 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  */
 package net.zorched.grails.plugins.validation;
 
-import org.codehaus.groovy.grails.commons.InjectableGrailsClass;
+import grails.core.InjectableGrailsClass;
 
 /**
  * Represents a validation class in Grails. This is a mediator around

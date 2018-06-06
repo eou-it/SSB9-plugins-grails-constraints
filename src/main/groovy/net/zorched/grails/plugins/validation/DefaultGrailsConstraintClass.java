@@ -1,4 +1,4 @@
-/* Copyright 2006-2008 the original author or authors.
+/* Copyright 2006-2018 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@ package net.zorched.grails.plugins.validation;
 
 import grails.util.GrailsNameUtils;
 import groovy.lang.Closure;
-import org.codehaus.groovy.grails.commons.AbstractInjectableGrailsClass;
+import org.grails.core.AbstractInjectableGrailsClass;
 import org.hibernate.SessionFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.HibernateTemplate;

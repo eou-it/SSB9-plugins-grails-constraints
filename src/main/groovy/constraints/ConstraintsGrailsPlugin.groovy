@@ -1,6 +1,9 @@
 package constraints
 
 import grails.plugins.*
+import grails.gorm.validation.ConstrainedProperty
+import net.zorched.grails.plugins.validation.ConstraintArtefactHandler
+import net.zorched.grails.plugins.validation.CustomConstraintFactory
 
 class ConstraintsGrailsPlugin extends Plugin {
 
