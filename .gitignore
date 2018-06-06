@@ -6,3 +6,9 @@ target
 .idea/
 Grails-constraints.git.iml
 *.iml
+*.ipr
+*.iws
+build/
+gradle-wrapper.properties
+.gradle/
+
