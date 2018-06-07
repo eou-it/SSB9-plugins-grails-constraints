@@ -4,9 +4,13 @@ import grails.plugins.*
 import grails.gorm.validation.ConstrainedProperty
 import net.zorched.grails.plugins.validation.ConstraintArtefactHandler
 import net.zorched.grails.plugins.validation.CustomConstraintFactory
+import net.zorched.grails.plugins.validation.GrailsConstraintClass
+import org.grails.datastore.mapping.validation.ValidatorRegistry
+import org.springframework.beans.factory.config.MethodInvokingFactoryBean
 
 class ConstraintsGrailsPlugin extends Plugin {
-
+    // the plugin version
+    def version = "9.23"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "3.3.2 > *"
     // resources that are excluded from plugin packaging
@@ -14,18 +18,17 @@ class ConstraintsGrailsPlugin extends Plugin {
         "grails-app/views/error.gsp"
     ]
 
-    // TODO Fill in these fields
-    def title = "Constraints" // Headline display name of the plugin
-    def author = "Your name"
+    def title = "Custom domain constraints plugin" // Headline display name of the plugin
+    def author = "Ellucian"
     def authorEmail = ""
-    def description = '''\
-Brief summary/description of the plugin.
-'''
+    def description =  '''
+    This plugin allows you to create custom domain validations that are applied the same
+    way as built-in domain constraints.
+    '''
     def profiles = ['web']
-
     // URL to the plugin's documentation
     def documentation = "http://grails.org/plugin/constraints"
-
+    ValidatorRegistry gormValidatorRegistry
     // Extra (optional) plugin metadata
 
     // License: one of 'APACHE', 'GPL2', 'GPL3'
@@ -45,16 +48,15 @@ Brief summary/description of the plugin.
 
     Closure doWithSpring() { {->
             // TODO Implement runtime spring config (optional)
-			 grailsApplication.constraintClasses.each {constraintClass ->
+        grailsApplication.constraintClasses.each {constraintClass ->
             configureConstraintBeans.delegate = delegate
             configureConstraintBeans(constraintClass)
-        }
+            }
         }
     }
 
     void doWithDynamicMethods() {
-        // TODO Implement registering dynamic methods to classes (optional)
-		grailsApplication.constraintClasses.each {constraintClass ->
+        grailsApplication.constraintClasses.each {constraintClass ->
             setupConstraintProperties(constraintClass)
 
             registerConstraint.delegate = delegate
@@ -67,8 +69,7 @@ Brief summary/description of the plugin.
     }
 
     void onChange(Map<String, Object> event) {
-        // TODO Implement code that is executed when any artefact that this plugin is
-       // watching is modified and reloaded. The event contains: event.source,
+         // watching is modified and reloaded. The event contains: event.source,
         // event.application, event.manager, event.ctx, and event.plugin.
 
         // XXX: Not sure if this works?
@@ -85,6 +86,25 @@ Brief summary/description of the plugin.
 
     void onShutdown(Map<String, Object> event) {
         // TODO Implement code that is executed when the application shuts down (optional)
+    }
+
+    /**
+     * Register the beans with Spring so that we can inject them later.
+     * Not sure if this is really needed.
+     */
+    def configureConstraintBeans = { GrailsConstraintClass constraintClass ->
+        // XXX: Not convinced this does anything
+        def fullName = constraintClass.fullName
+        "${fullName}Class"(MethodInvokingFactoryBean) {
+            targetObject = ref("grailsApplication", true)
+            targetMethod = "getArtefact"
+            arguments = [ConstraintArtefactHandler.TYPE, constraintClass.fullName]
+        }
+
+        "${fullName}"(ref("${fullName}Class")) {bean ->
+            bean.factoryMethod = "newInstance"
+            bean.autowire = true
+        }
     }
 	
 	/**
@@ -113,7 +133,6 @@ Brief summary/description of the plugin.
     def registerConstraint = { constraintClass, usingHibernate ->
         def constraintName = constraintClass.name
         log.debug "Loading constraint: ${constraintClass.name}"
-
-        ConstrainedProperty.registerNewConstraint(constraintName, new CustomConstraintFactory(constraintClass, applicationContext))
+        gormValidatorRegistry.addConstraint(constraintClass) //Changed from ContraintFactory
     }
 }
