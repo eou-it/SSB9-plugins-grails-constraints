@@ -11,4 +11,5 @@ Grails-constraints.git.iml
 build/
 gradle-wrapper.properties
 .gradle/
+out/
 
