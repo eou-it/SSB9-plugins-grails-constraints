@@ -48,20 +48,20 @@ class ConstraintsGrailsPlugin extends Plugin {
 
     Closure doWithSpring() { {->
             // TODO Implement runtime spring config (optional)
-        grailsApplication.constraintClasses.each {constraintClass ->
+        /*grailsApplication.constraintClasses.each {constraintClass ->
             configureConstraintBeans.delegate = delegate
             configureConstraintBeans(constraintClass)
-            }
+            }*/
         }
     }
 
     void doWithDynamicMethods() {
-        grailsApplication.constraintClasses.each {constraintClass ->
+        /*grailsApplication.constraintClasses.each {constraintClass ->
             setupConstraintProperties(constraintClass)
 
             registerConstraint.delegate = delegate
             registerConstraint(constraintClass, false)
-        }
+        }*/
     }
 
     void doWithApplicationContext() {
