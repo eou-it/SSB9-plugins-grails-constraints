@@ -10,7 +10,7 @@ import org.springframework.beans.factory.config.MethodInvokingFactoryBean
 
 class ConstraintsGrailsPlugin extends Plugin {
     // the plugin version
-    def version = "9.23"
+    def version = "9.30"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "3.3.2 > *"
     // resources that are excluded from plugin packaging
