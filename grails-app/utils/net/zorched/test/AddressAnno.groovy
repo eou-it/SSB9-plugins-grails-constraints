@@ -1,6 +1,6 @@
 package net.zorched.test
 
-import org.codehaus.groovy.grails.validation.Validateable
+import grails.validation.Validateable
 
 /**
  * net.zorched.test
@@ -8,8 +8,7 @@ import org.codehaus.groovy.grails.validation.Validateable
  * Date: Jan 7, 2010
  * Time: 8:28:25 PM
  */
-@Validateable
-public class AddressAnno {
+public class AddressAnno implements Validateable {
     String street
     String zip
     String phone
